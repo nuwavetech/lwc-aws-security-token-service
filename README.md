@@ -1,26 +1,26 @@
 # LightWave Client - AWS Security Token Service
-This LightWave Client sample application illustrates how to assume an AWS Identity and Access Management (IAM) Role using the AWS Security Token Service (STS). The Access Key Id, Secret Access Key, and Session Token of the assumed role can be used in subsequent LightWave Client requests to AWS services.
+This LightWave Client sample application illustrates how to assume an AWS Identity and Access Management (IAM)role using the AWS Security Token Service (STS). The Access Key Id, Secret Access Key, and Session Token of the assumed role can be used in subsequent LightWave Client requests to AWS services.
  
 A LightWave Client (LWC) application might use STS in the following scenario:
    
  + A LWC application needs to access files in an AWS S3 bucket.
- + The S3 bucket policy uses IAM Roles to contol access.
- + The LWC application must assume a IAM role in order to access the bucket.
+ + The S3 bucket policy uses IAM roles to contol access.
+ + The LWC application must assume an IAM role and use the temporary credentials in order to access the S3 bucket.
   
-This sample illustrates how to assume the IAM Role. The credentials returned can be used in subsequent requests to other AWS services.
+This sample illustrates how to assume the IAM role. The credentials returned can be used in subsequent requests to other AWS services.
 
 ## Prerequisites
 
 + NonStop C Compiler.
 + A installed instance of [LightWave Client](https://docs.nuwavetech.com/display/LWCLIENT) version 1.1.0 or greater.
 + An AWS account.
-+ An IAM Role ARN to be assumed.
++ An IAM role ARN to be assumed.
 + The security credentials (Access key ID and Secret access key) of an IAM user that has permission to assume the IAM Role.
 
 The following values must be configured in the SETUP TACL macro after installation of the sample:
 
-+ lwc-isv - The installation subvolume of your LightWave Client installation.
-+ role-arn - The ARN of the IAM Role to be assumed.
++ lwc-isv - The installation subvolume of your LightWave Client software.
++ role-arn - The ARN of the IAM role to be assumed.
 
 The AWSAUTH file must be updated with the credentials of an IAM user that has permission to assume the role. For more information
 on configuring AWS credentials for use with LightWave Client, see [Request Authentication and Signing](https://docs.nuwavetech.com/display/LWCLIENT/Request+Authentication+and+Signing) in the LightWave Client documentation.
@@ -44,7 +44,7 @@ In addition, a PAK archive containing all of the source files is available for t
 | src/sts.c | stsc |
 | stspak.bin | stspak |
 
-#### Upload the PAK archive
+#### Transfer the PAK archive to your NonStop System
 
 Download `stspak.bin` from this repository to your local system, then upload to your NonStop server using binary transfer mode.
 
