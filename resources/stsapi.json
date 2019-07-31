@@ -1,0 +1,794 @@
+{
+  "name": "aws-security-token-service",
+  "description": "The AWS Security Token Service (STS) is a web service that enables you to request temporary credentials for AWS IAM Users",
+  "version": 1,
+  "id": "039f242bb213301d7b8001010000012ef1",
+  "modificationTime": 1564591935,
+  "isBrief": false,
+  "operations": [
+    {
+      "path": "/",
+      "methods": [
+        {
+          "api": {
+            "stringPadding": "zeros"
+          },
+          "request": {
+            "mappings": [
+              {
+                "source": {
+                  "type": "constant",
+                  "data": "2011-06-15"
+                },
+                "target": {
+                  "type": "form",
+                  "value": "Version"
+                }
+              },
+              {
+                "source": {
+                  "type": "constant",
+                  "data": "AssumeRole"
+                },
+                "target": {
+                  "type": "form",
+                  "value": "Action"
+                }
+              },
+              {
+                "source": {
+                  "type": "ipm",
+                  "data": "66"
+                },
+                "target": {
+                  "type": "form",
+                  "value": "RoleSessionName"
+                }
+              },
+              {
+                "source": {
+                  "type": "ipm",
+                  "data": "8"
+                },
+                "target": {
+                  "type": "form",
+                  "value": "DurationSeconds"
+                }
+              },
+              {
+                "source": {
+                  "type": "ipm",
+                  "data": "1226"
+                },
+                "target": {
+                  "type": "form",
+                  "value": "ExternalId"
+                }
+              },
+              {
+                "source": {
+                  "type": "ipm",
+                  "data": "2050"
+                },
+                "target": {
+                  "type": "form",
+                  "value": "Policy"
+                }
+              },
+              {
+                "source": {
+                  "type": "ipm",
+                  "data": "2050"
+                },
+                "target": {
+                  "type": "form",
+                  "value": "RoleArn"
+                }
+              },
+              {
+                "source": {
+                  "type": "ipm",
+                  "data": "258"
+                },
+                "target": {
+                  "type": "form",
+                  "value": "SerialNumber"
+                }
+              },
+              {
+                "source": {
+                  "type": "ipm",
+                  "data": "8"
+                },
+                "target": {
+                  "type": "form",
+                  "value": "TokenCode"
+                }
+              }
+            ],
+            "contentType": "application/x-www-form-urlencoded",
+            "acceptTypes": [
+              "text/xml"
+            ],
+            "contentTypeIsCustom": false
+          },
+          "responses": [
+            {
+              "mappings": [
+                {
+                  "target": {
+                    "type": "ipm"
+                  },
+                  "source": {
+                    "type": "body",
+                    "value": "AssumeRoleResponse"
+                  }
+                }
+              ],
+              "httpStatus": "200",
+              "description": "Success"
+            },
+            {
+              "httpStatus": "*",
+              "description": "Error",
+              "mappings": [
+                {
+                  "target": {
+                    "type": "ipm"
+                  },
+                  "source": {
+                    "type": "body",
+                    "value": "ErrorResponse"
+                  }
+                }
+              ]
+            }
+          ],
+          "verb": "POST",
+          "alias": "AssumeRole",
+          "description": "Returns a set of temporary security credentials that you can use to access AWS resources that you might not normally have access to.",
+          "id": 1
+        },
+        {
+          "api": {
+            "stringPadding": "zeros"
+          },
+          "request": {
+            "mappings": [
+              {
+                "source": {
+                  "type": "constant",
+                  "data": "2011-06-15"
+                },
+                "target": {
+                  "type": "form",
+                  "value": "Version"
+                }
+              },
+              {
+                "source": {
+                  "type": "constant",
+                  "data": "GetCallerIdentity"
+                },
+                "target": {
+                  "type": "form",
+                  "value": "Action"
+                }
+              }
+            ],
+            "contentType": "application/x-www-form-urlencoded",
+            "acceptTypes": [
+              "text/xml"
+            ],
+            "contentTypeIsCustom": false
+          },
+          "responses": [
+            {
+              "mappings": [
+                {
+                  "target": {
+                    "type": "ipm"
+                  },
+                  "source": {
+                    "type": "body",
+                    "value": "GetCallerIdResponse"
+                  }
+                }
+              ],
+              "httpStatus": "200",
+              "description": "Success"
+            },
+            {
+              "httpStatus": "*",
+              "description": "Error",
+              "mappings": [
+                {
+                  "target": {
+                    "type": "ipm"
+                  },
+                  "source": {
+                    "type": "body",
+                    "value": "ErrorResponse"
+                  }
+                }
+              ]
+            }
+          ],
+          "verb": "POST",
+          "alias": "GetCallerIdentity",
+          "description": "Returns details about the IAM user or role whose credentials are used to call the operation.",
+          "id": 2
+        },
+        {
+          "api": {
+            "stringPadding": "zeros"
+          },
+          "request": {
+            "mappings": [
+              {
+                "source": {
+                  "type": "constant",
+                  "data": "2011-06-15"
+                },
+                "target": {
+                  "type": "form",
+                  "value": "Version"
+                }
+              },
+              {
+                "source": {
+                  "type": "constant",
+                  "data": "GetAccessKeyInfo"
+                },
+                "target": {
+                  "type": "form",
+                  "value": "Action"
+                }
+              },
+              {
+                "source": {
+                  "type": "ipm",
+                  "data": "256"
+                },
+                "target": {
+                  "type": "form",
+                  "value": "AccessKeyId"
+                }
+              }
+            ],
+            "contentType": "application/x-www-form-urlencoded",
+            "acceptTypes": [
+              "text/xml"
+            ],
+            "contentTypeIsCustom": false
+          },
+          "responses": [
+            {
+              "mappings": [
+                {
+                  "target": {
+                    "type": "ipm"
+                  },
+                  "source": {
+                    "type": "body",
+                    "value": "AccessKeyInfoResponse"
+                  }
+                }
+              ],
+              "httpStatus": "200",
+              "description": "Success"
+            },
+            {
+              "httpStatus": "*",
+              "description": "Error",
+              "mappings": [
+                {
+                  "target": {
+                    "type": "ipm"
+                  },
+                  "source": {
+                    "type": "body",
+                    "value": "ErrorResponse"
+                  }
+                }
+              ]
+            }
+          ],
+          "verb": "POST",
+          "alias": "GetAccessKeyInfo",
+          "description": "Returns the account identifier for the specified access key ID.",
+          "id": 3
+        }
+      ]
+    }
+  ],
+  "types": {
+    "type": {
+      "AssumeRoleResponse": {
+        "anonymous": false,
+        "elements": [
+          {
+            "name": "AssumeRoleResult",
+            "type": "AssumeRoleResultType"
+          },
+          {
+            "name": "ResponseMetadata",
+            "type": "ResponseMetadataType"
+          }
+        ],
+        "@XmlRootElement": {
+          "name": "AssumeRoleResponse",
+          "namespace": "https://sts.amazonaws.com/doc/2011-06-15/"
+        }
+      },
+      "AssumeRoleResultType": {
+        "anonymous": true,
+        "elements": [
+          {
+            "name": "Credentials",
+            "type": "CredentialsType"
+          },
+          {
+            "name": "AssumedRoleUser",
+            "type": "AssumedRoleUserType"
+          },
+          {
+            "name": "PackedPolicySize",
+            "type": "int",
+            "size": 4
+          }
+        ],
+        "@XmlRootElement": {
+          "name": "AssumeRoleResult",
+          "namespace": "https://sts.amazonaws.com/doc/2011-06-15/"
+        }
+      },
+      "CredentialsType": {
+        "anonymous": true,
+        "elements": [
+          {
+            "name": "SessionToken",
+            "type": "string",
+            "size": 2050,
+            "sensitive": true
+          },
+          {
+            "name": "SecretAccessKey",
+            "type": "string",
+            "size": 66,
+            "sensitive": true
+          },
+          {
+            "name": "Expiration",
+            "type": "timestamp"
+          },
+          {
+            "name": "AccessKeyId",
+            "type": "string",
+            "size": 66,
+            "sensitive": true
+          }
+        ],
+        "@XmlRootElement": {
+          "name": "Credentials",
+          "namespace": "https://sts.amazonaws.com/doc/2011-06-15/"
+        }
+      },
+      "AssumedRoleUserType": {
+        "anonymous": true,
+        "elements": [
+          {
+            "name": "Arn",
+            "type": "string",
+            "size": 2050
+          },
+          {
+            "name": "AssumedRoleId",
+            "type": "string",
+            "size": 2050
+          }
+        ],
+        "@XmlRootElement": {
+          "name": "AssumedRoleUser",
+          "namespace": "https://sts.amazonaws.com/doc/2011-06-15/"
+        }
+      },
+      "ResponseMetadataType": {
+        "anonymous": true,
+        "elements": [
+          {
+            "name": "RequestId",
+            "type": "string",
+            "size": 66
+          }
+        ],
+        "@XmlRootElement": {
+          "name": "ResponseMetadata",
+          "namespace": "https://sts.amazonaws.com/doc/2011-06-15/"
+        }
+      },
+      "ErrorResponse": {
+        "anonymous": false,
+        "elements": [
+          {
+            "name": "Error",
+            "type": "ErrorType"
+          },
+          {
+            "name": "RequestId",
+            "type": "string",
+            "size": 66
+          }
+        ],
+        "@XmlRootElement": {
+          "name": "ErrorResponse",
+          "namespace": "https://sts.amazonaws.com/doc/2011-06-15/"
+        }
+      },
+      "ErrorType": {
+        "anonymous": true,
+        "elements": [
+          {
+            "name": "Type",
+            "type": "string",
+            "size": 66
+          },
+          {
+            "name": "Code",
+            "type": "string",
+            "size": 66
+          },
+          {
+            "name": "Message",
+            "type": "string",
+            "size": 1026
+          }
+        ],
+        "@XmlRootElement": {
+          "name": "Error",
+          "namespace": "https://sts.amazonaws.com/doc/2011-06-15/"
+        }
+      },
+      "GetCallerIdResponse": {
+        "anonymous": false,
+        "elements": [
+          {
+            "name": "GetCallerIdentityResult",
+            "type": "GetCallerIdentityResultType"
+          },
+          {
+            "name": "ResponseMetadata",
+            "type": "ResponseMetadataType"
+          }
+        ],
+        "@XmlRootElement": {
+          "name": "GetCallerIdentityResponse",
+          "namespace": "https://sts.amazonaws.com/doc/2011-06-15/"
+        }
+      },
+      "GetCallerIdentityResultType": {
+        "anonymous": true,
+        "elements": [
+          {
+            "name": "Arn",
+            "type": "string",
+            "size": 2050,
+            "sensitive": true
+          },
+          {
+            "name": "UserId",
+            "type": "string",
+            "size": 66,
+            "sensitive": true
+          },
+          {
+            "name": "Account",
+            "type": "string",
+            "size": 66,
+            "sensitive": true
+          }
+        ],
+        "@XmlRootElement": {
+          "name": "GetCallerIdentityResult",
+          "namespace": "https://sts.amazonaws.com/doc/2011-06-15/"
+        }
+      },
+      "AccessKeyInfoResponse": {
+        "anonymous": false,
+        "elements": [
+          {
+            "name": "GetAccessKeyInfoResult",
+            "type": "GetAccessKeyInfoResultType"
+          },
+          {
+            "name": "ResponseMetadata",
+            "type": "ResponseMetadataType"
+          }
+        ],
+        "@XmlRootElement": {
+          "name": "GetAccessKeyInfoResponse",
+          "namespace": "https://sts.amazonaws.com/doc/2011-06-15/"
+        }
+      },
+      "GetAccessKeyInfoResultType": {
+        "anonymous": true,
+        "elements": [
+          {
+            "name": "Account",
+            "type": "string",
+            "size": 16,
+            "sensitive": true
+          }
+        ],
+        "@XmlRootElement": {
+          "name": "GetAccessKeyInfoResult",
+          "namespace": "https://sts.amazonaws.com/doc/2011-06-15/"
+        }
+      }
+    }
+  },
+  "generatedTypes": {
+    "WARNING": "These types are generated by LightWave Client and should not be manually edited.",
+    "type": {
+      "LightWaveRqHeader": {
+        "generated": true,
+        "lightwave": true,
+        "elements": [
+          {
+            "name": "rqCode",
+            "type": "short",
+            "size": 2
+          },
+          {
+            "name": "rqVersion",
+            "type": "unsignedShort",
+            "size": 2
+          },
+          {
+            "name": "rqTimeout",
+            "type": "unsignedInt",
+            "size": 4
+          },
+          {
+            "name": "reserved",
+            "type": "string",
+            "size": 24
+          }
+        ]
+      },
+      "LightWaveRpHeader": {
+        "generated": true,
+        "lightwave": true,
+        "elements": [
+          {
+            "name": "rpCode",
+            "type": "short",
+            "size": 2
+          },
+          {
+            "name": "httpStatus",
+            "type": "short",
+            "size": 2
+          },
+          {
+            "name": "infoCode",
+            "type": "short",
+            "size": 2
+          },
+          {
+            "name": "infoDetail",
+            "type": "short",
+            "size": 2
+          },
+          {
+            "name": "reserved",
+            "type": "string",
+            "size": 24
+          }
+        ]
+      },
+      "LightWaveErrorRp": {
+        "generated": true,
+        "lightwave": true,
+        "elements": [
+          {
+            "name": "LightWaveRpHeader",
+            "type": "LightWaveRpHeader"
+          },
+          {
+            "name": "errorSource",
+            "type": "int",
+            "size": 4
+          },
+          {
+            "name": "errorCode",
+            "type": "int",
+            "size": 4
+          },
+          {
+            "name": "errorSubcode",
+            "type": "int",
+            "size": 4
+          },
+          {
+            "name": "errorMessage",
+            "type": "string",
+            "size": 4096
+          }
+        ]
+      },
+      "AssumeRoleRq": {
+        "generated": true,
+        "lightwave": false,
+        "isRequest": true,
+        "alias": "AssumeRole",
+        "description": "Returns a set of temporary security credentials that you can use to access AWS resources that you might not normally have access to.",
+        "operation": "POST /",
+        "elements": [
+          {
+            "name": "LightWaveRqHeader",
+            "type": "LightWaveRqHeader"
+          },
+          {
+            "name": "RoleSessionName",
+            "type": "string",
+            "size": 66
+          },
+          {
+            "name": "DurationSeconds",
+            "type": "string",
+            "size": 8
+          },
+          {
+            "name": "ExternalId",
+            "type": "string",
+            "size": 1226
+          },
+          {
+            "name": "Policy",
+            "type": "string",
+            "size": 2050
+          },
+          {
+            "name": "RoleArn",
+            "type": "string",
+            "size": 2050
+          },
+          {
+            "name": "SerialNumber",
+            "type": "string",
+            "size": 258
+          },
+          {
+            "name": "TokenCode",
+            "type": "string",
+            "size": 8
+          }
+        ]
+      },
+      "AssumeRole200Rp": {
+        "generated": true,
+        "lightwave": false,
+        "isReply": true,
+        "elements": [
+          {
+            "name": "LightWaveRpHeader",
+            "type": "LightWaveRpHeader"
+          },
+          {
+            "name": "AssumeRoleResponse",
+            "type": "AssumeRoleResponse"
+          }
+        ]
+      },
+      "AssumeRoleOtherRp": {
+        "generated": true,
+        "lightwave": false,
+        "isReply": true,
+        "elements": [
+          {
+            "name": "LightWaveRpHeader",
+            "type": "LightWaveRpHeader"
+          },
+          {
+            "name": "ErrorResponse",
+            "type": "ErrorResponse"
+          }
+        ]
+      },
+      "GetCallerIdentityRq": {
+        "generated": true,
+        "lightwave": false,
+        "isRequest": true,
+        "alias": "GetCallerIdentity",
+        "description": "Returns details about the IAM user or role whose credentials are used to call the operation.",
+        "operation": "POST /",
+        "elements": [
+          {
+            "name": "LightWaveRqHeader",
+            "type": "LightWaveRqHeader"
+          }
+        ]
+      },
+      "GetCallerIdentity200Rp": {
+        "generated": true,
+        "lightwave": false,
+        "isReply": true,
+        "elements": [
+          {
+            "name": "LightWaveRpHeader",
+            "type": "LightWaveRpHeader"
+          },
+          {
+            "name": "GetCallerIdResponse",
+            "type": "GetCallerIdResponse"
+          }
+        ]
+      },
+      "GetCallerIdentityOtherRp": {
+        "generated": true,
+        "lightwave": false,
+        "isReply": true,
+        "elements": [
+          {
+            "name": "LightWaveRpHeader",
+            "type": "LightWaveRpHeader"
+          },
+          {
+            "name": "ErrorResponse",
+            "type": "ErrorResponse"
+          }
+        ]
+      },
+      "GetAccessKeyInfoRq": {
+        "generated": true,
+        "lightwave": false,
+        "isRequest": true,
+        "alias": "GetAccessKeyInfo",
+        "description": "Returns the account identifier for the specified access key ID.",
+        "operation": "POST /",
+        "elements": [
+          {
+            "name": "LightWaveRqHeader",
+            "type": "LightWaveRqHeader"
+          },
+          {
+            "name": "AccessKeyId",
+            "type": "string",
+            "size": 256
+          }
+        ]
+      },
+      "GetAccessKeyInfo200Rp": {
+        "generated": true,
+        "lightwave": false,
+        "isReply": true,
+        "elements": [
+          {
+            "name": "LightWaveRpHeader",
+            "type": "LightWaveRpHeader"
+          },
+          {
+            "name": "AccessKeyInfoResponse",
+            "type": "AccessKeyInfoResponse"
+          }
+        ]
+      },
+      "GetAccessKeyInfoOtherRp": {
+        "generated": true,
+        "lightwave": false,
+        "isReply": true,
+        "elements": [
+          {
+            "name": "LightWaveRpHeader",
+            "type": "LightWaveRpHeader"
+          },
+          {
+            "name": "ErrorResponse",
+            "type": "ErrorResponse"
+          }
+        ]
+      }
+    }
+  }
+}
