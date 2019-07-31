@@ -1,0 +1,18 @@
+?tacl macro
+
+== Builds the STS program file.
+ 
+#frame
+
+[#push  
+basename
+] 
+ 
+#set basename sts
+
+ccomp / in [basename]c, out [basename]l / [basename] ; &
+  extensions, runnable, saveabend, symbols, inspect, &
+  allow_cplusplus_comments, &
+  SSV0 "[#defaults/current/]", SSV1 "$system.system"
+
+#unframe  

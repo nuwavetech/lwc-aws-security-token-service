@@ -1,0 +1,10 @@
+?tacl macro
+
+== Set runtime environment. Customize this for your environment.
+ 
+#set #param pathmon-name        $NWSTS
+#set #param server-class        AWS-STS
+#set #param lwc-isv             $vol.subvol
+#set #param base-url            https://sts.amazonaws.com/
+#set #param role-arn            arn:aws:iam::<account>:role/<role-name>
+  
