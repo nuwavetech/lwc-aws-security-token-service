@@ -12,7 +12,7 @@ This sample illustrates how to assume the IAM role. The credentials returned can
 ## Prerequisites
 
 + NonStop C Compiler.
-+ A installed instance of [LightWave Client](https://docs.nuwavetech.com/display/LWCLIENT) version 1.1.0 or greater.
++ An installed instance of [LightWave Client](https://docs.nuwavetech.com/display/LWCLIENT) version 1.1.0 or greater.
 + An AWS account.
 + An IAM role ARN to be assumed.
 + The security credentials (Access key ID and Secret access key) of an IAM user that has permission to assume the IAM Role.
@@ -37,12 +37,12 @@ In addition, a PAK archive containing all of the source files is available for t
 | macros/logcfg.txt | logcfg |
 | macros/setenv.txt | setenv |
 | macros/startpw.txt | startpw |
-| macros/stoppw.txt | stoppw |
-| macros/setenv.txt | unsetenv |
+| macros/stoppw.txt | stoppw | 
+| macros/unsetenv.txt | unsetenv |
 | resources/stsapi.json | stsapi |
 | resources/stsddl.txt | stsddl |
 | src/sts.c | stsc |
-| stspak.bin | stspak |
+| stspak.bin | stspak |  
 
 #### Transfer the PAK archive to your NonStop System
 
